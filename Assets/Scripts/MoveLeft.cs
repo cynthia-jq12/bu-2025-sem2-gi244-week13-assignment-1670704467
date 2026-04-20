@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
@@ -25,7 +25,7 @@ public class MoveLeft : MonoBehaviour
 
         if (transform.position.x < -15 && gameObject.CompareTag("Obstacle"))
         {
-            Destroy(gameObject);
+            ObstacleObjectPool.Instance.Release(gameObject, 0);
         }
     }
 }

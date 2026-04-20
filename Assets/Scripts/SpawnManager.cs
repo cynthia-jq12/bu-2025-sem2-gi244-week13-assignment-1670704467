@@ -3,7 +3,6 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public Transform spawnPoint;
-    public GameObject obstaclePrefab;
 
     void Start()
     {
@@ -20,10 +19,13 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
-        Instantiate(
-            obstaclePrefab,
-            spawnPoint.position,
-            obstaclePrefab.transform.rotation
-        );
+        int randomType = Random.Range(0, 3);
+        GameObject obstacle = ObstacleObjectPool.Instance.Acquire(randomType);
+
+        if (obstacle != null)
+        {
+            obstacle.transform.position = spawnPoint.position;
+            obstacle.transform.rotation = Quaternion.identity;
+        }
     }
 }
