@@ -20,6 +20,7 @@ public class ObstacleObjectPool : MonoBehaviour
         {
             Instance = this;
         }
+
         obstacleBarrelPool = new List<GameObject>();
         obstacleBarrierPool = new List<GameObject>();
         obstacleStoneWallPool = new List<GameObject>();
